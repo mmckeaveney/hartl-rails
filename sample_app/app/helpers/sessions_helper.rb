@@ -19,7 +19,7 @@ module SessionsHelper
       # find the user in the db
       user = User.find_by(id: user_id)
       # if the user exists and clicked rememember me before
-      if user && user.authenticated?(cookies[:remember_token])
+      if user && user.authenticated?(:remember, cookies[:remember_token])
         # sign them in
         log_in user
         @current_user = user
