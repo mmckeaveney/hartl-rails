@@ -4,7 +4,7 @@ class Micropost < ApplicationRecord
   validates :content, presence: true, length: { maximum: 140 }
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
-  validate :picture_size
+  #validate :picture_size
 
   def picture_size
     if picture.size < 5.megabytes
